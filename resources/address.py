@@ -10,8 +10,8 @@ from models.address import AddressModel
 from schemas import AddressSchema
 
 
-
 blp = Blueprint("addresses", __name__, description="Operations on addresses")
+
 
 @blp.route("/addresses")
 class Address(MethodView):
@@ -19,17 +19,20 @@ class Address(MethodView):
     def get(self):
         return AddressModel.query.all()
 
+
 @blp.route("/address/<string:id>")
 class Address(MethodView):
     @blp.response(200, AddressSchema)
     def get(self, id):
         address = AddressModel.query.get(id)
         return address
+
     def delete(self, id):
         address = AddressModel.query.get(id)
         db.session.delete(address)
         db.session.commit()
         return "address deleted"
+
 
 
 @blp.route("/address")
