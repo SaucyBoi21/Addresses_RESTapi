@@ -8,6 +8,7 @@ from db import db
 import models
 
 from resources.address import blp as AddressBlueprint
+from resources.user import blp as UserBluePrint
 
 
 def create_app(db_url=None):
@@ -34,4 +35,5 @@ def create_app(db_url=None):
         db.create_all()
 
     api.register_blueprint(AddressBlueprint)
+    api.register_blueprint(UserBluePrint)
     return app
