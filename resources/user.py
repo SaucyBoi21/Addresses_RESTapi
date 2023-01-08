@@ -26,6 +26,7 @@ class UserRegister(MethodView):
 
         return {"message": "Account created"}, 201
 
+
 @blp.route("/login")
 class UserLogin(MethodView):
     @blp.arguments(UserSchema)

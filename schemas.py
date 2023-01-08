@@ -9,6 +9,7 @@ class AddressSchema(Schema):
     zip_code = fields.Str(required=True)
     street = fields.Str(required=True)
 
+
 class UserSchema(Schema):
     id = fields.Int(dump_only=True)
     username = fields.Str(required=True)
